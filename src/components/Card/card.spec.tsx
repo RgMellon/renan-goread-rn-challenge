@@ -2,12 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 
 import { Card } from '.';
-
-const mock = {
-  title: 'some-title',
-  image: 'https://avatars.githubusercontent.com/u/29661994?v=4',
-  stars: 4,
-};
+import { mock } from '../../mocks/repository.mock';
 
 describe('<Card />', () => {
   const makeSut = () => {
@@ -26,11 +21,13 @@ describe('<Card />', () => {
     const { getByText, getByTestId } = makeSut();
 
     const cardTitle = getByText(mock.title);
+    const cardUser = getByText(mock.user);
     const cardImage = getByTestId('card-avatar');
     const cardStars = getByTestId('card-stars');
 
     expect(cardImage.props.source.uri).toEqual(mock.image);
     expect(cardTitle).toBeTruthy();
-    expect(cardStars.props.children).toEqual(4);
+    expect(cardUser).toBeTruthy();
+    expect(cardStars.props.children[0]).toEqual(4);
   });
 });
