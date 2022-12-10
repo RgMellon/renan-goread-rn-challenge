@@ -1,0 +1,7 @@
+- [x ] Fazer testes do search;
+- [x ] Adicionar redux;
+- [x ] Fazer chamada na api;
+- [ x] Renderizar webview;
+- [x ] Adicionar Stack Routes;
+- [x] Refatorar testes;
+- [x] Adicionar teste de pagina vazia
