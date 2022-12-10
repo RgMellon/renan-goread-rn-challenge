@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
-import { Text, TextInputProps } from 'react-native';
+
+import { useDispatch } from 'react-redux';
 
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 import * as S from './styles';
+import { searchRepository } from '../../store/repositories/actions';
 
 export function Search() {
+  const dispatch = useDispatch();
+
   const [search, setSearch] = useState('');
-  const [doSearch, setDoSearch] = useState('');
 
   function handleSearch() {
-    alert('oi');
+    if (!search) {
+      alert('Ops, digite um repositório válido');
+      return;
+    }
+    dispatch(searchRepository(search));
   }
 
   return (
@@ -21,10 +28,9 @@ export function Search() {
         placeholder="Buscar repositórios"
         value={search}
         returnKeyType="search"
-        onChangeText={(text) => {
-          setSearch(text);
-        }}
+        onChangeText={setSearch}
         onEndEditing={handleSearch}
+        onBlur={handleSearch}
       />
     </S.Container>
   );
