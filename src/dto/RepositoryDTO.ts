@@ -1,6 +1,10 @@
 export type Repository = {
-  title: string;
-  image: string;
-  stars: number;
-  user: string;
+  id: number;
+  html_url?: string;
+  owner: {
+    avatar_url: string;
+    login: string;
+  };
+  name: string;
+  stargazers_count: number;
 };

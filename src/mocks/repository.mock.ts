@@ -1,6 +1,9 @@
 export const mock = {
-  title: 'some-title',
-  image: 'https://avatars.githubusercontent.com/u/29661994?v=4',
-  stars: 4,
-  user: 'some-user',
+  id: 12,
+  name: 'vue',
+  owner: {
+    avatar_url: 'https://avatars.githubusercontent.com/u/20044598?v=4',
+    login: 'qq281113270',
+  },
+  stargazers_count: 12312,
 };
