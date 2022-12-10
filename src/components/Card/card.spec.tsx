@@ -20,14 +20,14 @@ describe('<Card />', () => {
   it('should render with the right props passed to the component', () => {
     const { getByText, getByTestId } = makeSut();
 
-    const cardTitle = getByText(mock.title);
-    const cardUser = getByText(mock.user);
+    const cardTitle = getByText(mock.name);
+    const cardUser = getByText(mock.owner.login);
     const cardImage = getByTestId('card-avatar');
     const cardStars = getByTestId('card-stars');
 
-    expect(cardImage.props.source.uri).toEqual(mock.image);
+    expect(cardImage.props.source.uri).toEqual(mock.owner.avatar_url);
     expect(cardTitle).toBeTruthy();
     expect(cardUser).toBeTruthy();
-    expect(cardStars.props.children[0]).toEqual(4);
+    expect(cardStars.props.children[0]).toEqual(12312);
   });
 });
