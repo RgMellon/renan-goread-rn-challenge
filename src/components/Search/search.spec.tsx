@@ -1,6 +1,15 @@
 import { fireEvent, render } from '@testing-library/react-native';
 import { Search } from '.';
 
+const mockUseDispatch = jest.fn();
+const mockDispatch = jest.fn();
+
+jest.mock('react-redux', () => ({
+  useDispatch: () => mockUseDispatch,
+}));
+
+mockUseDispatch.mockReturnValue(mockDispatch);
+
 describe('Search', () => {
   const makeSut = () => {
     return render(<Search />);
