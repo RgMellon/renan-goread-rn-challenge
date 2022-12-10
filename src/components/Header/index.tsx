@@ -12,7 +12,7 @@ export function Header({ title }: HeaderProps) {
     <S.Container testID="header">
       <S.Title> {title} </S.Title>
 
-      <Search placeholder="Buscar repositórios" />
+      <Search />
     </S.Container>
   );
 }
