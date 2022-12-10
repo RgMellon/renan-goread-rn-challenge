@@ -4,6 +4,15 @@ import { fireEvent, render } from '@testing-library/react-native';
 import { HomeTemplate } from '.';
 import { repositories } from '../../mocks/repositories.mock';
 
+const mockUseDispatch = jest.fn();
+const mockDispatch = jest.fn();
+
+jest.mock('react-redux', () => ({
+  useDispatch: () => mockUseDispatch,
+}));
+
+mockUseDispatch.mockReturnValue(mockDispatch);
+
 describe('<HomeTemplate />', () => {
   let props = {
     repositories: repositories,
@@ -33,7 +42,7 @@ describe('<HomeTemplate />', () => {
     const { getByTestId } = makeSut();
     const homeTemplate = getByTestId('home-template');
 
-    expect(homeTemplate.props.data).toHaveLength(3);
+    expect(homeTemplate.props.data).toHaveLength(1);
   });
 
   it('should be able to call handleRedirect when card is clicked', () => {
@@ -43,5 +52,15 @@ describe('<HomeTemplate />', () => {
     fireEvent(card, 'onPress');
 
     expect(props.handleRedirect).toHaveBeenCalledTimes(1);
+  });
+
+  it('should render the empty page when list is empty', () => {
+    const { getByTestId } = render(
+      <HomeTemplate {...props} repositories={[]} />
+    );
+
+    const empty = getByTestId('empty');
+
+    expect(empty).toBeTruthy();
   });
 });
