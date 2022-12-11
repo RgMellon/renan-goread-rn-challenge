@@ -16,6 +16,12 @@ Layout baseado [Nesse projeto](https://www.figma.com/file/ROaFck4gHEITw3vdUzSwsi
 
 ---
 
+## DOWNLOAD APK
+
+Caso utilize android você pode baixar o apk e rodar o app, basta baixar no link abaixo
+
+[APK](https://expo.dev/artifacts/eas/98vXBE6zR55KXa9jnptoe1.apk)
+
 ## 📱 Preview do projeto
 
 Segue o preview em video do projeto
