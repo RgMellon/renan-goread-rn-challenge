@@ -58,7 +58,7 @@ O projeto foi feito utilizando das seguintes tecnologias
   $ yarn
 
   #Basta ler o codigo de barras que aparecerá, com isso o projeto deverá abrir
-  $ expo start
+  $ npx expo start
 
   # Para rodar os testes
 
